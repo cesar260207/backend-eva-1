@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Control de Gestión | Municipalidad de La Serena{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm border-0 mb-4">
+    <div class="card-body">
+        <h2 class="mb-3">Control de gestión y métricas</h2>
+        <p class="text-muted mb-0">Monitoreo trimestral de cumplimiento por delegación territorial.</p>
+    </div>
+</div>
+
+<div class="row g-4">
+    {% for delegacion in delegaciones %}
+    <div class="col-md-6 col-xl-4">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0">{{ delegacion.nombre }}</h5>
+                    <span class="badge bg-{{ delegacion.estado_class }} rounded-pill">{{ delegacion.estado }}</span>
+                </div>
+                <div class="progress mb-3" style="height: 20px;">
+                    <div class="progress-bar bg-{{ delegacion.estado_class }}" role="progressbar" style="width: {{ delegacion.cumplimiento }}%;" aria-valuenow="{{ delegacion.cumplimiento }}" aria-valuemin="0" aria-valuemax="100">
+                        {{ delegacion.cumplimiento }}%
+                    </div>
+                </div>
+                <ul class="list-unstyled small text-muted mb-0">
+                    <li><strong>Meta:</strong> {{ delegacion.meta }}%</li>
+                    <li><strong>Último dato:</strong> {{ delegacion.ultimos_datos }}</li>
+                    <li><strong>Días transcurridos:</strong> {{ delegacion.dias_desde_registro }}</li>
+                    <li><strong>Observación:</strong> {{ delegacion.observacion }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

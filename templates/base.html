@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Municipalidad de La Serena{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <style>
+        body {
+            background: linear-gradient(180deg, #f4f9ff 0%, #eef5f7 100%);
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background: #0b3d72;
+        }
+        .navbar-brand, .nav-link {
+            color: #ffffff !important;
+            font-weight: 600;
+        }
+        .hero-header {
+            background: linear-gradient(135deg, #0b3d72, #1d5bb8);
+            color: white;
+            padding: 2rem 0;
+            border-radius: 0 0 18px 18px;
+        }
+        .footer {
+            background: #0d1b2a;
+            color: #dfeaf9;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        .badge-pendiente { background-color: #fd7e14; }
+        .badge-enproceso { background-color: #0d6efd; }
+        .badge-realizado { background-color: #198754; }
+        .badge-alerta { background-color: #dc3545; }
+        .semaforo-verde { background-color: #198754; color: white; }
+        .semaforo-amarillo { background-color: #ffc107; color: black; }
+        .semaforo-rojo { background-color: #dc3545; color: white; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'inicio' %}">
+                <img src="{% static 'images/escudo_laserena.svg' %}" alt="Escudo municipal" width="42" height="42">
+                Municipalidad de La Serena
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto gap-2">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'solicitudes' %}">Tubo de solicitudes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Control de gestión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'semaforo' %}">Semáforo</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="mb-2">Sistema de Control de Gestión y Seguimiento Territorial</h1>
+                    <p class="mb-0">Delegaciones municipales · Seguridad · DISERCO · Gestión Social · Organizaciones Comunitarias</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <img src="{% static 'images/logo_municipalidad.svg' %}" alt="Logo institucional" class="img-fluid" style="max-width: 180px;">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <div>
+                <strong>Municipalidad de La Serena</strong><br>
+                <small>Departamento de Gestión Territorial</small>
+            </div>
+            <div>
+                <small>© 2026 · Proyecto Django · Evaluación sumativa</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

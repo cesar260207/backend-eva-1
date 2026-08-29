@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Resumen Ejecutivo | Municipalidad de La Serena{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm border-0 mb-4">
+    <div class="card-body">
+        <h2 class="mb-2">Resumen ejecutivo</h2>
+        <p class="text-muted mb-0">Promedio general del cumplimiento y comparación entre delegaciones.</p>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="text-muted">Cumplimiento promedio</div>
+                <h3>{{ promedio }}%</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="text-muted">Mejor delegación</div>
+                <h3>{{ mejor.nombre }}</h3>
+                <small>{{ mejor.cumplimiento }}% de avance</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="text-muted">Delegación crítica</div>
+                <h3>{{ critico.nombre }}</h3>
+                <small>{{ critico.cumplimiento }}% de avance</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>Delegación</th>
+                <th>Meta</th>
+                <th>Cumplimiento</th>
+                <th>Estado</th>
+                <th>Último dato</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for delegacion in delegaciones %}
+            <tr>
+                <td>{{ delegacion.nombre }}</td>
+                <td>{{ delegacion.meta }}%</td>
+                <td>{{ delegacion.cumplimiento }}%</td>
+                <td><span class="badge bg-{{ delegacion.estado_class }} rounded-pill">{{ delegacion.estado }}</span></td>
+                <td>{{ delegacion.ultimos_datos }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
