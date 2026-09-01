@@ -13,18 +13,37 @@
 
 **Implementación realizada:** Se aplicó esa estructura en el proyecto, con vistas, rutas y plantillas compartidas para la administración territorial.
 
+
+
 ## Prompt 2
-**Pregunta:** "Quiero que las solicitudes muestren estado según una regla de vencimiento: si la fecha compromiso pasó y sigue pendiente, debe marcarse como Alerta Roja. Además, necesito un semáforo en el dashboard por delegación con porcentajes y días transcurridos."
 
-**Respuesta de apoyo:** Se recomendó calcular la diferencia entre la fecha actual y la fecha de compromiso, y clasificar los porcentajes en `Verde`, `Amarillo` y `Rojo` según umbrales del 80%, 65% y menores valores.
+Utilizamos La IA del Visual Studio Code para la implementacion de algunos logos e imagenes que estan distribuidos por el proyecto debido a algunos problemas de integracion y de deformaciones que les ocurrian al integrar las imagenes pero gracias a esta logramos insertarla de la mejor manera posible.
 
-**Implementación realizada:** El cálculo se incorporó a las vistas de `delegaciones_app` y `gestion_app` usando Python, estructuras condicionales e iteraciones sobre los JSON.
+## Prompt 3
+**Pregunta:** "quiero colocar esa imagen como en la presentacion de la pagina como el landing pages nose si me entiendes".
 
-## Implementación final
-La IA apoyó principalmente en:
-- diseño de cards y tablas con Bootstrap
-- lógica de carga y procesamiento de JSON
-- estructura de navegación y plantillas reutilizables
-- organización del contenido territorial y de métricas municipales
+**Respuesta de apoyo:** Se sugirio transformar el header principal en una portada tipo landing page con fondo rojo, texto grande y la marca institucional centrada.
 
-Este documento forma parte de la evidencia del uso de IA como apoyo al desarrollo del proyecto.
+**Implementación realizada:** Se ajustó la plantilla base para que el hero principal de la página tuviera una presentación visual más impactante y acorde a la referencia enviada.
+
+## Prompt 4
+**Pregunta:** "pasame el link para comprobar que se actualizo y enciende el entorno".
+
+**Respuesta de apoyo:** Se indicaron las rutas locales y se ejecutó el proyecto con Django para verificar que la aplicación quedaba levantada correctamente.
+
+**Implementación realizada:** Se validó con `python manage.py check` y se confirmó que la aplicación respondía en `http://localhost:8000`.
+
+
+## Prompt 5
+**Pregunta:** "esa es la url donde esta mi imagen".
+
+**Respuesta de apoyo:** Se utilizó la imagen real enviada por el usuario como recurso local del proyecto para reemplazar la marca provisional.
+
+**Implementación realizada:** Se copió la imagen a `static/images/logo_municipalidad_serena.jpg` y se vinculó al hero principal del landing page.
+
+## Prompt 6
+**Pregunta:** "puedes subir los cambios al repositorio de github?".
+
+**Respuesta de apoyo:** Se revisó el estado del repositorio y se procedió a hacer el `commit` y `push` al remoto de GitHub.
+
+**Implementación realizada:** Los cambios del branding del landing page quedaron subidos a GitHub en el repositorio principal del proyecto.
