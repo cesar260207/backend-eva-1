@@ -19,10 +19,47 @@
             font-weight: 600;
         }
         .hero-header {
-            background: linear-gradient(135deg, #0b3d72, #1d5bb8);
+            background: #b10000;
             color: white;
-            padding: 2rem 0;
+            padding: 2.5rem 0 2.5rem;
             border-radius: 0 0 18px 18px;
+            box-shadow: 0 8px 24px rgba(125, 0, 0, 0.18);
+        }
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero-logo-frame {
+            width: min(440px, 62vw);
+            margin: 0 auto 1.2rem;
+            background: transparent;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
+        }
+        .hero-logo {
+            display: block;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.08));
+            background: transparent;
+        }
+        .hero-title {
+            font-size: clamp(3.5rem, 7vw, 7.6rem);
+            line-height: 0.92;
+            font-weight: 700;
+            letter-spacing: -0.06em;
+            margin: 0;
+            color: #ffffff;
+        }
+        .hero-subtitle {
+            margin-top: 0.8rem;
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.92);
+            letter-spacing: 0.01em;
         }
         .footer {
             background: #0d1b2a;
@@ -61,16 +98,12 @@
     </nav>
 
     <header class="hero-header">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <h1 class="mb-2">Sistema de Control de Gestión y Seguimiento Territorial</h1>
-                    <p class="mb-0">Delegaciones municipales · Seguridad · DISERCO · Gestión Social · Organizaciones Comunitarias</p>
-                </div>
-                <div class="col-md-4 text-md-end">
-                    <img src="{% static 'images/logo_municipalidad.svg' %}" alt="Logo institucional" class="img-fluid" style="max-width: 180px;">
-                </div>
+        <div class="container hero-content">
+            <div class="hero-logo-frame">
+                <img src="{% static 'images/logo_municipalidad_serena.jpg' %}" alt="Escudo de La Serena" class="hero-logo">
             </div>
+            <h1 class="hero-title">La Serena</h1>
+            <p class="hero-subtitle">Sistema de Control de Gestión y Seguimiento Territorial</p>
         </div>
     </header>
 
@@ -85,7 +118,6 @@
                 <small>Departamento de Gestión Territorial</small>
             </div>
             <div>
-                <small>© 2026 · Proyecto Django · Evaluación sumativa</small>
             </div>
         </div>
     </footer>
